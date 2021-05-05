@@ -1,0 +1,467 @@
+/* Settings */
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-font-color: #000000;
+  --button-font-color: #FFFFFF;
+  --hover-color: #808080;
+  --second-hover-color: #F3F3F3;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  font-family: Gilroy-Regular;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 10px;
+  color: var(--main-font-color);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article>*+* {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+    -o-transition-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: url('./fonts/Gilroy-Bold.woff2') format('woff2'),
+    url('./fonts/Gilroy-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gilroy-Regular';
+  src: url('./fonts/Gilroy-Regular.woff2') format('woff2'),
+    url('./fonts/Gilroy-Regular.woff') format('woff');
+}
+
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0  auto;
+  max-width: 1920px;
+}
+
+.left-side {
+  width: 50%;
+  height: auto;
+  padding: 20px;
+  height: 100vh;
+}
+
+
+#map {
+  width: 50%;
+  height: 100vh;
+}
+
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 127px;
+  height: 58px;
+  margin-bottom: 40px;
+}
+
+.form input {
+  width: 100%;
+  padding: 0 0 10px 40px;
+  margin-bottom: 20px;
+  border: 0;
+  outline: 0;
+  font-size: 18px;
+  background: transparent;
+  background-image: url(./image/loop.svg);
+  background-repeat: no-repeat;
+  color: var(--main-font-color);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
+}
+
+.filter {
+  margin-bottom: 20px;
+}
+
+.filter__btn {
+  padding: 6px 25px;
+  background: transparent;
+  font-weight: 500;
+  font-size: 18px;
+  border-width: 1px;
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.filter__btn:hover {
+  border-color: var(--main-font-color);
+  color: var(--main-font-color);
+  font-weight: 700;
+}
+
+.filter__btn:focus {
+  color: var(--main-font-color);
+  font-weight: 800;
+}
+
+.filter__btn-active {
+  font-weight: 700;
+  color: var(--main-font-color);
+}
+
+.filter__btn:not(:last-child) {
+  margin-right: 20px;
+}
+
+.filter-elements {
+  overflow-y: auto;
+  height: 70vh;
+}
+
+.element-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin-top: 30px;
+}
+
+.item__info {
+  width: 100%;
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+  margin-left: 40px;
+  padding-right: 10px;
+}
+
+.item__info h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 21px;
+}
+
+.item__info-tags {
+  max-width: 400px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.item__info-tags span:not(:last-child)::after {
+  content: '·';
+  margin-left: 4px;
+}
+
+.item__info-tags span:not(:last-child) {
+  margin-right: 4px;
+}
+
+.item__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.price__total {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.price__night {
+  font-size: 15px;
+  line-height: 17px;
+}
+
+.item__footer-btn {
+  padding: 10px 25px;
+  font-weight: 500;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--button-font-color);
+  background: var(--main-font-color);
+}
+
+.item__footer-btn:hover,
+.item__footer-btn:active {
+  background: var(--hover-color);
+}
+
+.show {
+  display: block;
+}
+
+.cars {
+  display: none;
+}
+
+.travels {
+  display: none;
+}
+
+
+.element-item img {
+  max-width: 300px;
+  border-radius: 5px;
+}
+
+
+@media screen and (max-width: 1440px) {
+  .left-side  {
+    padding: 10px;
+  }
+
+  .logo {
+    width: 105px;
+    height: 45px;
+  }
+
+  .item__info {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .filter__btn {
+    font-size: 16px;
+    padding: 4px 20px;
+  }
+
+  .element-item img {
+    max-width: 250px
+  }
+  
+  .item__info h3 {
+    font-size: 19px;
+  }
+
+  .price__total {
+    font-size: 16px;
+  }
+
+  .price__night {
+    font-size: 14px;
+  }
+
+  .item__footer-btn {
+    padding: 7px 20px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .logo {
+    width: 90px;
+    height: 40px;
+  }
+
+  .left-side  {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    z-index: 1;
+  }
+
+  /* .element-item img {
+    max-width: 100%
+  } */
+
+  .filter-elements {
+    overflow-y: visible;
+    height: auto;
+  }
+
+  #map {
+    width: 100%;
+    max-height: 700px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .element-item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .element-item img{
+    min-width: 400px;
+  }
+
+  .item__info-tags {
+    margin-bottom: 10px;
+  }
+
+  .item__info {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .filter__btn {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .element-item img {
+    min-width: 100%;
+  }
+  
+  .filter__btn:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .filter__btn {
+    padding: 3.5px 14px;
+  }
+}
+
+
+.modal-dialog {
+  max-width: 800px;
+  height: auto;
+  margin: 100px auto;
+  padding: 20px;
+}
+
+.modal-body {
+position:relative;
+padding: 0px;
+
+}
+.close {
+position:absolute;
+right: -17px;
+top: -20px;
+z-index:999;
+font-size:2rem;
+font-weight: normal;
+color:#fff;
+opacity:1;
+}
+
+#myModal {
+  padding-right: 0;
+}
+
+.modal  {
+  padding-right: 0px;
+}
